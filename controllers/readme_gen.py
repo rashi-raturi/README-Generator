@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from controllers.extractMarkdown import extract_markdown
 import os
 
+load_dotenv()
 
 client = Groq(
     api_key = os.getenv('API_KEY')
