@@ -2,8 +2,17 @@ import streamlit as st
 import readme_gen as rg
 from dotenv import load_dotenv
 import os
-
 load_dotenv()
+
+# function to generate content
+def generate(query):
+    content = rg.ask(query)
+
+    return content
+
+# Initialize session state for content
+if 'content' not in st.session_state:
+    st.session_state.content = ""
 
 # Sidebar for selection
 with st.sidebar:
@@ -12,6 +21,7 @@ with st.sidebar:
 # Setting the title based on the selection
 if option == 'ReadMe':
     st.title('ReadMe Generator')
+    st.divider()
 
     with st.sidebar:
         project_name = st.text_input('Project Name')
@@ -30,16 +40,21 @@ if option == 'ReadMe':
     
         # click on the button to generate the response
         if st.sidebar.button('Generate'):
-            content = rg.ask(query)
+            st.session_state.content = generate(query)
             
+
+        # Toggle between Markdown and Code views
+        if st.session_state.content:
+            if st.toggle('Preview'):
+                st.markdown(st.session_state.content)
+            else:
+                st.code(st.session_state.content, language='markdown')
+
+                
+                
+                    
+
             
-            with st.container():
-                st.code(content, language='markdown')
-
-
-                if st.toggle('Preview'):
-                    st.markdown(content)
- 
 
                 
                             
