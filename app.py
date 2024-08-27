@@ -1,7 +1,7 @@
 import streamlit as st
 import views.readme as rv
-import views.mainPage as mp
-import views.linkedinBio as lb
+
+
 
 st.set_page_config(page_title="ReadMe Generator")
 

@@ -1,7 +1,7 @@
 import streamlit as st
 from dotenv import load_dotenv
 import os
-import readme_gen as rg
+import controllers.readme_gen as rg
 from streamlit_extras.mention import mention
 from streamlit_extras.bottom_container import bottom
 

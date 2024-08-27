@@ -1,6 +1,6 @@
 from groq import Groq
 from dotenv import load_dotenv
-from extractMarkdown import extract_markdown
+from controllers.extractMarkdown import extract_markdown
 import os
 
 

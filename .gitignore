@@ -1,3 +1,5 @@
 .venv
 .env
 themes.txt
+__pycache__
+views/__pycache__
