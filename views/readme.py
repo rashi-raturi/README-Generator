@@ -22,6 +22,7 @@ def sidebarView():
 
     return project_name, project_details, uploaded_files
 
+
 def getFileData(uploaded_files):
     file_data = ''
     for file in uploaded_files:
@@ -31,22 +32,21 @@ def getFileData(uploaded_files):
 
     return file_data
 
+
 def mainView():
 
     project_name, project_details, uploaded_files = sidebarView()
          
     if uploaded_files is not None:
         file_data = getFileData(uploaded_files) 
+        query = os.getenv('PROMPT').format(project_name=project_name, file_data=file_data, project_details=project_details)
 
-        query = os.getenv('PROMPT').format(project_name=project_name,file_data=file_data)
-    
         st.sidebar.divider()
+
         # click on the button to generate the response
         if st.sidebar.button('Generate'):
             st.session_state.content = rg.ask(query)
-
-        
-            
+ 
         # Toggling between Markdown and Code views
         if st.session_state.content:
             if st.toggle('Preview'):
