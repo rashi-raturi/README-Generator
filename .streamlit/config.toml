@@ -1,0 +1,7 @@
+# .streamlit/config.toml
+[theme]
+primaryColor = "#81A1C1"                # Frost blue
+backgroundColor = "#2E3440"            # Polar night
+secondaryBackgroundColor = "#3B4252"   # Lighter shade of polar night
+textColor = "#E5E9F0"                  # Snow storm
+font = "sans serif"                    # Default sans-serif

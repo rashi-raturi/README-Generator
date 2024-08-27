@@ -28,5 +28,3 @@ def ask(query):
     markdown_content = response.choices[0].message.content
 
     return extract_markdown(markdown_content)
-
-
